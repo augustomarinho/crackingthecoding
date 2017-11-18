@@ -2,9 +2,9 @@ package com.am.crackingthecoding.algorithms.linkedlist.simple;
 
 public class MyLinkedList<T> {
 
-    private Node<T> head;
+    protected Node<T> head;
 
-    private int size;
+    protected int size;
 
     public MyLinkedList(T data) {
         head = new Node<>(data);
@@ -26,7 +26,8 @@ public class MyLinkedList<T> {
         }
     }
 
-    public Node remove(T data) {
+    public boolean remove(T data) {
+
         Node auxHead = head;
 
         if (data != null) {
@@ -38,7 +39,8 @@ public class MyLinkedList<T> {
                     auxHead.setNext(null);
                 }
                 --size;
-                return auxHead;
+                head = auxHead;
+                return true;
             }
 
             //otherwise, continue finding in linkedList
@@ -51,14 +53,16 @@ public class MyLinkedList<T> {
                     }
 
                     --size;
-                    return auxHead;
+                    head = auxHead;
+
+                    return true;
                 }
 
                 auxHead = auxHead.getNext();
             }
         }
 
-        return auxHead;
+        return false;
     }
 
     public int getSize() {

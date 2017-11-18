@@ -1,5 +1,7 @@
 package com.am.crackingthecoding.algorithms.linkedlist.simple;
 
+import com.am.crackingthecoding.algorithms.hash.FNV;
+
 public class LinkedListExecutor {
 
     public static void main(String[] args) {
@@ -12,6 +14,10 @@ public class LinkedListExecutor {
         System.out.println(linkedList.prettyToString());
 
 
-        //System.out.println("---- X ------ X ------");
+        System.out.println("---- X ------ X ------");
+        linkedList.remove("Primeiro");
+        linkedList.remove("terceiro");
+        System.out.println(linkedList.toString());
+        System.out.println(linkedList.prettyToString());
     }
 }
