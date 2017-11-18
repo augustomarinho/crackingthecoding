@@ -17,6 +17,7 @@ public class LinkedListExecutor {
         System.out.println("---- X ------ X ------");
         linkedList.remove("Primeiro");
         linkedList.remove("terceiro");
+        linkedList.remove("segundo");
         System.out.println(linkedList.toString());
         System.out.println(linkedList.prettyToString());
     }

@@ -1,42 +1,43 @@
-package com.am.crackingthecoding.algorithms.stacks;
+package com.am.crackingthecoding.algorithms.queues;
 
 import com.am.crackingthecoding.algorithms.linkedlist.simple.Node;
 
-public class SimpleStack<T> {
+public class SimpleQueue<T> {
 
-    protected Node<T> top;
+    protected Node head;
+    protected Node tail;
 
     protected int size;
 
-    public SimpleStack(T data) {
-        top = new Node<>(data);
+    public SimpleQueue(T data) {
+        head = new Node(data);
+        tail = head;
         size++;
     }
 
-    public T pop() {
-
-        if (top != null) {
-            T auxData = top.getData();
-            top = top.getNext();
-
-            --size;
-            return auxData;
+    public void enqueue(T data) {
+        if (head == null) {
+            head = new Node(data);
+            tail = head;
+            size++;
+        } else {
+            Node auxTail = tail;
+            tail = new Node(data);
+            auxTail.setNext(tail);
+            size++;
         }
-
-        return null;
     }
 
-    public void push(T data) {
-        Node<T> node = new Node<>(data);
-        node.setNext(top);
-        top = node;
-        size++;
-    }
+    public T dequeue() {
 
-    public T peek() {
+        if (head != null) {
 
-        if (top != null) {
-            return top.getData();
+            if (head != null) {
+                T data = (T) head.getData();
+                head = head.getNext();
+                size--;
+                return data;
+            }
         }
 
         return null;
@@ -44,13 +45,13 @@ public class SimpleStack<T> {
 
     @Override
     public String toString() {
-        return "Stack has " + size + " element(s)";
+        return "Queue has " + size + " element(s)";
     }
 
     public String prettyToString() {
         StringBuffer str = new StringBuffer();
 
-        Node auxTop = top;
+        Node auxTop = head;
 
         if (auxTop != null) {
             if (auxTop.getNext() == null) {

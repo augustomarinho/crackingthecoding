@@ -36,7 +36,7 @@ public class MyLinkedList<T> {
                 if (auxHead.getNext() != null) {
                     auxHead = auxHead.getNext();
                 } else {
-                    auxHead.setNext(null);
+                    auxHead = null;
                 }
                 --size;
                 head = auxHead;
@@ -79,22 +79,26 @@ public class MyLinkedList<T> {
 
         Node auxHead = head;
 
-        if (auxHead.getNext() == null) {
-            str.append(auxHead.getData());
-        } else {
-
-            int sizeList = 0;
-            do {
-                if (sizeList > 0) {
-                    str.append("|");
-                }
+        if (auxHead != null) {
+            if (auxHead.getNext() == null) {
                 str.append(auxHead.getData());
+            } else {
 
-                auxHead = auxHead.getNext();
-                sizeList++;
-            } while (auxHead != null);
+                int sizeList = 0;
+                do {
+                    if (sizeList > 0) {
+                        str.append("|");
+                    }
+                    str.append(auxHead.getData());
+
+                    auxHead = auxHead.getNext();
+                    sizeList++;
+                } while (auxHead != null);
+            }
+
+            return str.toString();
         }
 
-        return str.toString();
+        return "<EMPTY>";
     }
 }

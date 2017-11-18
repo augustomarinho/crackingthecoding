@@ -15,6 +15,8 @@ public class StackExecutor {
         System.out.println(stack.peek());
         stack.pop();
         stack.pop();
+        stack.pop();
+        stack.pop();
 
         System.out.println(stack.toString());
         System.out.println(stack.prettyToString());
