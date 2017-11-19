@@ -27,7 +27,7 @@ public class Fibonacci {
 
     public static void main(String args[]) {
         Fibonacci fibonacci = new Fibonacci();
-        BigInteger[] serie = fibonacci.generateSerie(100);
+        BigInteger[] serie = fibonacci.generateSerie(1000);
         System.out.println(Arrays.toString(serie));
     }
 }
