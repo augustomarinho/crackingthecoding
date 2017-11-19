@@ -1,6 +1,6 @@
-package com.am.crackingthecoding.algorithms.queues;
+package com.am.study.datastructure.queues;
 
-import com.am.crackingthecoding.algorithms.linkedlist.simple.Node;
+import com.am.study.datastructure.linkedlist.Node;
 
 public class SimpleQueue<T> {
 

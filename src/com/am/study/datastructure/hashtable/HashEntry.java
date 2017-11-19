@@ -1,6 +1,4 @@
-package com.am.crackingthecoding.algorithms.hashtable;
-
-import com.am.crackingthecoding.algorithms.hash.FNV;
+package com.am.study.datastructure.hashtable;
 
 /**
  * @param <V> Some comments:

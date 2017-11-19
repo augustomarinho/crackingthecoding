@@ -1,4 +1,4 @@
-package com.am.crackingthecoding.algorithms.hash;
+package com.am.study.datastructure.hash;
 
 import java.math.BigInteger;
 

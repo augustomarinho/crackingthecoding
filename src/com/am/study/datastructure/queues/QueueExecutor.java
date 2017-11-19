@@ -1,4 +1,4 @@
-package com.am.crackingthecoding.algorithms.queues;
+package com.am.study.datastructure.queues;
 
 public class QueueExecutor {
 

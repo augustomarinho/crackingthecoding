@@ -1,6 +1,6 @@
-package com.am.crackingthecoding.algorithms.stacks;
+package com.am.study.datastructure.stacks;
 
-import com.am.crackingthecoding.algorithms.linkedlist.simple.Node;
+import com.am.study.datastructure.linkedlist.Node;
 
 public class SimpleStack<T> {
 

@@ -1,4 +1,4 @@
-package com.am.crackingthecoding.algorithms.stacks;
+package com.am.study.datastructure.stacks;
 
 public class StackExecutor {
 

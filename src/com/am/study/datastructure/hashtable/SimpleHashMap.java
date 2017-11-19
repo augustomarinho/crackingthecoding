@@ -1,6 +1,6 @@
-package com.am.crackingthecoding.algorithms.hashtable;
+package com.am.study.datastructure.hashtable;
 
-import com.am.crackingthecoding.algorithms.hash.FNV;
+import com.am.study.datastructure.hash.FNV;
 
 /**
  * First example for studying HashTables. This SimpleHashMap is not adapted for working with colision.

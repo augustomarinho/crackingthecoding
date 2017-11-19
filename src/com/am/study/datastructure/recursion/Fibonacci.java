@@ -1,4 +1,4 @@
-package com.am.crackingthecoding.algorithms.recursion;
+package com.am.study.datastructure.recursion;
 
 import java.math.BigInteger;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.am.crackingthecoding.algorithms.linkedlist.simple;
+package com.am.study.datastructure.linkedlist;
 
 public class MyLinkedList<T> {
 

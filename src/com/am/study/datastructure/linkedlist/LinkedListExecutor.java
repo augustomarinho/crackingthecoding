@@ -1,6 +1,4 @@
-package com.am.crackingthecoding.algorithms.linkedlist.simple;
-
-import com.am.crackingthecoding.algorithms.hash.FNV;
+package com.am.study.datastructure.linkedlist;
 
 public class LinkedListExecutor {
 

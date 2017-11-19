@@ -1,4 +1,4 @@
-package com.am.crackingthecoding.algorithms.hashtable;
+package com.am.study.datastructure.hashtable;
 
 public class HashMapApp {
 
