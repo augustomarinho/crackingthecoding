@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class HashTableRansomNote {
 
-    private static final String MAGAZINE_SENTENCE = "give me one grand today night";
-    private static final String RANSOM_SENTENCE = "give one grand today";
+    private static final String MAGAZINE_SENTENCE = "two times three is not four";
+    private static final String RANSOM_SENTENCE = "two times two is four";
 
     boolean isPossibleCreateRansomNote(String[] magazineWords, String[] ransomWords) {
 
@@ -28,7 +28,7 @@ public class HashTableRansomNote {
             }
 
             maxOccursOfWordsInRansomNote = rWordFrequency.get(word.toLowerCase());
-            if (mWordFrequency.get(word.toLowerCase()) > maxOccursOfWordsInRansomNote) {
+            if (maxOccursOfWordsInRansomNote > mWordFrequency.get(word.toLowerCase())) {
                 return false;
             }
         }
