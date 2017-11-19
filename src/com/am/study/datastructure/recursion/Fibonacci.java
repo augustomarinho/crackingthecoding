@@ -13,7 +13,9 @@ public class Fibonacci {
     public BigInteger[] generate(BigInteger[] fibonacciSerie, int position, final int maxDepth) {
 
         if (position < maxDepth) {
-            if (position >= 0 && position <= 1) {
+            if (position == 0) {
+                fibonacciSerie[position] = BigInteger.valueOf(0);
+            } else if (position == 1) {
                 fibonacciSerie[position] = BigInteger.valueOf(1);
             } else {
                 fibonacciSerie[position] = fibonacciSerie[position - 2].add(fibonacciSerie[position - 1]);
