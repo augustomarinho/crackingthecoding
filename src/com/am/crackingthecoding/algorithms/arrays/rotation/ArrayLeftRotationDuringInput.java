@@ -1,4 +1,4 @@
-package com.am.crackingthecoding.algorithms.arrays.leftrotation;
+package com.am.crackingthecoding.algorithms.arrays.rotation;
 
 import java.util.Arrays;
 import java.util.Scanner;
