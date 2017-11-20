@@ -26,7 +26,6 @@ public class DetectACycleApp {
         return false;
     }
 
-
     public static void main(String args[]) {
         Node node1 = new Node();
         node1.data = 1;
