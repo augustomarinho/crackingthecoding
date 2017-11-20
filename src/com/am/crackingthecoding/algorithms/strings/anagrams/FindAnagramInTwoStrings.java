@@ -5,39 +5,35 @@ import java.util.*;
 public class FindAnagramInTwoStrings {
 
     public static int numberNeeded(String first, String second) {
-        String biggest = null;
-        String smallest = null;
 
+        int sum = 0;
         if (first != null && second != null) {
-            if (first.length() >= second.length()) {
-                biggest = first;
-                smallest = second;
-            } else {
-                biggest = second;
-                smallest = first;
+
+            char[] firstArray = first.toCharArray();
+            char[] secondArray = second.toCharArray();
+
+            int[] fullAlphabet = new int['z' - 'a' + 1];
+
+            for (char letter : firstArray) {
+                fullAlphabet[letter - 'a']++;
             }
 
-            char [] smallestArray = smallest.toCharArray();
-            char [] biggestArray = biggest.toCharArray();
-
-            String auxBiggest = biggest;
-            for (char currentChar : smallest.toCharArray()) {
-                if (biggest.indexOf(currentChar) != -1) {
-                    auxBiggest = auxBiggest.replaceFirst(currentChar + "", "");
-                    biggest = biggest.replaceFirst(currentChar + "", "");
-                }
+            for (char letter : secondArray) {
+                fullAlphabet[letter - 'a']--;
             }
 
-            return auxBiggest.length() + biggest.length();
+            for(int letter : fullAlphabet) {
+                sum += Math.abs(letter);
+            }
         }
 
-        return 0;
+        return sum;
     }
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String a = "abc"; //in.next();
-        String b = "cde"; //in.next();
+        Scanner in = new Scanner(System.in); //resposta 30
+        String a = "fcrxzwscanmligyxyvym"; //in.next();
+        String b = "jxwtrhvujlmrpdoqbisbwhmgpmeoke"; //in.next();
         System.out.println(numberNeeded(a, b));
     }
 }
