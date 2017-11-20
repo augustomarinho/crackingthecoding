@@ -2,7 +2,7 @@ package com.am.crackingthecoding.algorithms.linkedlist.detectacycle;
 
 public class DetectACycleApp {
 
-    public boolean hasCycle(Node head) {
+/*    public boolean hasCycle(Node head) {
         return existCycle(head, null, false);
     }
 
@@ -24,6 +24,25 @@ public class DetectACycleApp {
         }
 
         return true;
+    }*/
+
+    boolean hasCycle(Node head) {
+        if (head != null) {
+            Node next = head.next;
+            if (next != null) {
+                Node next2 = next.next;
+
+                if (head == next || head == next2) {
+                    return true;
+                }
+
+                return hasCycle(next);
+            }
+
+            return false;
+        }
+
+        return false;
     }
 
 
@@ -37,7 +56,7 @@ public class DetectACycleApp {
 
         node1.next = node2;
         node2.next = node3;
-        node3.next = node2;
+        node3.next = null;
 
         DetectACycleApp app = new DetectACycleApp();
         System.out.println(app.hasCycle(node1));
