@@ -1,4 +1,4 @@
-package com.am.study.algortihms;
+package com.am.study.algorithms.sorting;
 
 import java.util.Arrays;
 
