@@ -1,5 +1,7 @@
 package com.am.study.algorithms.dynamic;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
 import javax.sound.midi.SysexMessage;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -67,6 +69,14 @@ public class Knapsack {
                     matrix[item][weight] = matrix[item - 1][weight];
                 }
             }
+        }
+
+        //Printing the matrix
+        for (boolean[] rows : keep) {
+            for (boolean col : rows) {
+                System.out.format("%5d", col ? 1 : 0);
+            }
+            System.out.println();
         }
 
         //printing what items we picked
