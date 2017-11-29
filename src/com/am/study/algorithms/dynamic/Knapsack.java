@@ -101,7 +101,7 @@ public class Knapsack {
 
         int[] values = new int[]{60, 100, 120};
         int[] weight = new int[]{10, 20, 30};
-        int capacity = 50;
+        int capacity = 30;
 
         Knapsack knapsack = new Knapsack();
         System.out.println("MaxValue: " + knapsack.maxWeight(values, weight, capacity));

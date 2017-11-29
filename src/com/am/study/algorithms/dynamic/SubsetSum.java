@@ -1,51 +1,70 @@
 package com.am.study.algorithms.dynamic;
 
-/**
- * Created by augustomarinho on 27/11/17.
- */
+
+import java.util.HashSet;
+import java.util.StringTokenizer;
+
 public class SubsetSum {
+    /**
+     * The collection for storing the unique sets that sum to a target.
+     */
+    private static HashSet<String> allSubsets = new HashSet<>();
 
-    // Returns true if there is a subset of received array with sun equal to given sum
-    static boolean isSubsetSum(int set[], int n, int sum) {
-        boolean[][] solution = new boolean[set.length + 1][sum + 1];
-        // if sum is not zero and subset is 0, we can't make it
-        for (int i = 1; i <= sum; i++) {
-            solution[0][i] = false;
-        }
-        // if sum is 0 the we can make the empty subset to make sum 0
-        for (int i = 0; i <= set.length; i++) {
-            solution[i][0] = true;
-        }
-        //
-        for (int i = 1; i <= set.length; i++) {
-            for (int j = 1; j <= sum; j++) {
-                //first copy the data from the top
-                solution[i][j] = solution[i - 1][j];
+    /**
+     * The String token
+     */
+    private static final String token = " ";
 
-                //If solution[i][j]==false check if can be made
-                if (solution[i][j] == false && j >= set[i - 1])
-                    solution[i][j] = solution[i][j] || solution[i - 1][j - set[i - 1]];
+    /**
+     * The method for finding the subsets that sum to a target.
+     *
+     * @param input  The input array to be processed for subset with particular sum
+     * @param target The target sum we are looking for
+     * @param ramp   The Temporary String to be beefed up during recursive iterations(By default value an empty String)
+     * @param index  The index used to traverse the array during recursive calls
+     */
+    public static void findTargetSumSubsets(int[] input, int target, String ramp, int index) {
+
+        if (index > (input.length - 1)) {
+            if (getSum(ramp) == target) {
+                allSubsets.add(ramp);
             }
+            return;
         }
 
-                /* print table
-         for (int i = 0; i <= sum; i++)
-         {
-           for (int j = 0; j <= n; j++)
-              System.out.println (set[i][j]);
-         } */
-
-        return solution[set.length][sum];
+        //First recursive call going ahead selecting the int at the currenct index value
+        findTargetSumSubsets(input, target, ramp + input[index] + token, index + 1);
+        //Second recursive call going ahead WITHOUT selecting the int at the currenct index value
+        findTargetSumSubsets(input, target, ramp, index + 1);
     }
 
-    /* Driver program to test above function */
-    public static void main(String args[]) {
-        int set[] = {3, 34, 4, 12, 5, 2};
-        int sum = 9;
-        int n = set.length;
-        if (isSubsetSum(set, n, sum) == true)
-            System.out.println("Found a subset with given sum");
-        else
-            System.out.println("No subset with given sum");
+    /**
+     * A helper Method for calculating the sum from a string of integers
+     *
+     * @param intString the string subset
+     * @return the sum of the string subset
+     */
+    private static int getSum(String intString) {
+        int sum = 0;
+        StringTokenizer sTokens = new StringTokenizer(intString, token);
+        while (sTokens.hasMoreElements()) {
+            sum += Integer.parseInt((String) sTokens.nextElement());
+        }
+        return sum;
+    }
+
+    /**
+     * Cracking it up here : )
+     *
+     * @param args command line arguments.
+     */
+    public static void main(String[] args) {
+        int[] n = {3, 34, 4, 12, 5, 2};
+        int counter = 1;
+        SubsetSum.findTargetSumSubsets(n, 2, "", 0);
+        for (String str : allSubsets) {
+            System.out.println(counter + ") " + str);
+            counter++;
+        }
     }
 }
