@@ -64,11 +64,26 @@ public class SubsetSumDP {
                 if (i != j) {
                     subset.add(set[j]);
 
-                    if (sumSubSet(subset) == sum) {
+                    int sumSubsetJ = sumSubSet(subset);
+                    if (sumSubsetJ == sum) {
                         map.add(subset);
 
                         subset = new HashSet<>();
                         subset.add(set[i]);
+                    } else if (set[i] + set[j] == sum) {
+                        subset = new HashSet<>();
+                        subset.add(set[i]);
+                        subset.add(set[j]);
+                        map.add(subset);
+
+                        subset = new HashSet<>();
+                        subset.add(set[i]);
+                    } else if (sumSubsetJ > sum) {
+                        j = 0;
+                        limitJ--;
+                        subset = new HashSet<>();
+                        subset.add(set[i]);
+                        continue;
                     }
                 }
 
@@ -96,8 +111,8 @@ public class SubsetSumDP {
 
 
     public static void main(String args[]) {
-        int set[] = {3, 4, 12, 5};
-        int sum = 23;
+        int set[] = {3, 4, 12, 5, 7, 2};
+        int sum = 7;
         int n = set.length;
         //System.out.println(isSubsetSum(set, n, sum));
 
