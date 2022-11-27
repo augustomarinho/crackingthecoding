@@ -48,30 +48,23 @@ public class SimpleStack<T> {
     }
 
     public String prettyToString() {
-        StringBuffer str = new StringBuffer();
+        StringBuilder result = new StringBuilder();
 
-        Node auxTop = top;
-
-        if (auxTop != null) {
-            if (auxTop.getNext() == null) {
-                str.append(auxTop.getData());
-            } else {
-
-                int sizeList = 0;
-                do {
-                    if (sizeList > 0) {
-                        str.append("|");
-                    }
-                    str.append(auxTop.getData());
-
-                    auxTop = auxTop.getNext();
-                    sizeList++;
-                } while (auxTop != null);
-            }
-
-            return str.toString();
+        if (top == null) {
+            return "EMPTY";
         }
 
-        return "<EMPTY>";
+        Node aux = top;
+        do {
+            result.append(aux.getData());
+            aux = aux.getNext();
+
+            if (aux != null) {
+                result.append("|");
+            }
+
+        } while (aux != null);
+
+        return result.toString();
     }
 }

@@ -31,13 +31,11 @@ public class SimpleQueue<T> {
     public T dequeue() {
 
         if (head != null) {
+            T data = (T) head.getData();
+            head = head.getNext();
+            size--;
+            return data;
 
-            if (head != null) {
-                T data = (T) head.getData();
-                head = head.getNext();
-                size--;
-                return data;
-            }
         }
 
         return null;
@@ -49,30 +47,23 @@ public class SimpleQueue<T> {
     }
 
     public String prettyToString() {
-        StringBuffer str = new StringBuffer();
+        StringBuilder result = new StringBuilder();
 
-        Node auxTop = head;
-
-        if (auxTop != null) {
-            if (auxTop.getNext() == null) {
-                str.append(auxTop.getData());
-            } else {
-
-                int sizeList = 0;
-                do {
-                    if (sizeList > 0) {
-                        str.append("|");
-                    }
-                    str.append(auxTop.getData());
-
-                    auxTop = auxTop.getNext();
-                    sizeList++;
-                } while (auxTop != null);
-            }
-
-            return str.toString();
+        if (head == null) {
+            return "EMPTY";
         }
 
-        return "<EMPTY>";
+        Node aux = head;
+        do {
+            result.append(aux.getData());
+            aux = aux.getNext();
+
+            if (aux != null) {
+                result.append("|");
+            }
+
+        } while (aux != null);
+
+        return result.toString();
     }
 }
