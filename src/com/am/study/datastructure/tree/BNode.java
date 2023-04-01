@@ -1,36 +1,43 @@
 package com.am.study.datastructure.tree;
 
-import com.am.study.datastructure.linkedlist.Node;
+public class BNode {
 
-public class BNode<T> {
+    private BNode left = null;
+    private BNode right = null;
+    private Long value;
 
-    private Node left = null;
-    private Node right = null;
-    private T data;
-
-    public BNode(T data) {
-        this.data = data;
+    public BNode(Long data) {
+        this.value = data;
     }
 
-    public BNode addLeftNode(Node left) {
+    public BNode addLeftNode(BNode left) {
         this.left = left;
         return this;
     }
 
-    public BNode addRightNode(Node right) {
+    public BNode addRightNode(BNode right) {
         this.right = right;
         return this;
     }
 
-    public T getData() {
-        return data;
+    public Long getValue() {
+        return value;
     }
 
-    public Node getLeft() {
+    public void changeValue(Long value) {
+        this.value = value;
+    }
+
+    public BNode getLeft() {
         return left;
     }
 
-    public Node getRight() {
+    public BNode getRight() {
         return right;
+    }
+
+    @Override
+    public String toString() {
+        return value.toString();
     }
 }
